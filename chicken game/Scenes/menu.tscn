@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://co4kv64nh3bd0"]
+[gd_scene load_steps=17 format=3 uid="uid://co4kv64nh3bd0"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_p105b"]
 [ext_resource type="Texture2D" uid="uid://b3qvmfgqjo21v" path="res://Assets/kenney_tiny-town/Tilemap/tilemap_packed.png" id="2_edfhv"]
@@ -167,6 +167,18 @@ texture = ExtResource("4_8rhwg")
 texture_margin_top = 10.0
 texture_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_afgt8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qdxwp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7mjd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6j0po"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teycf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dcyaf"]
+
 [node name="Menu" type="Node2D"]
 position = Vector2(-2, 0)
 script = ExtResource("1_p105b")
@@ -201,6 +213,8 @@ theme_override_fonts/font = ExtResource("3_orwf6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ofy0a")
 theme_override_styles/hover = SubResource("StyleBoxTexture_i3ntj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nb8lu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_afgt8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qdxwp")
 text = "Start
 "
 
@@ -214,6 +228,8 @@ theme_override_fonts/font = ExtResource("3_orwf6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ofy0a")
 theme_override_styles/hover = SubResource("StyleBoxTexture_i3ntj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nb8lu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t7mjd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6j0po")
 text = "Credits
 "
 
@@ -227,6 +243,8 @@ theme_override_fonts/font = ExtResource("3_orwf6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ofy0a")
 theme_override_styles/hover = SubResource("StyleBoxTexture_i3ntj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nb8lu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_teycf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dcyaf")
 text = "Quit
 "
 

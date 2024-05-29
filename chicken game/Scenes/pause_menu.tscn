@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://s7vn38e4oo1o"]
+[gd_scene load_steps=12 format=3 uid="uid://s7vn38e4oo1o"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_eyypu"]
 [ext_resource type="FontFile" uid="uid://ck6f8thibspcd" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_7j36e"]
@@ -27,6 +27,14 @@ expand_margin_bottom = 2.0
 texture = ExtResource("3_cnafo")
 texture_margin_top = 10.0
 texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0tjc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_knqye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbbrl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ffpb6"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -64,6 +72,8 @@ theme_override_fonts/font = ExtResource("2_7j36e")
 theme_override_styles/normal = SubResource("StyleBoxTexture_harur")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ecfui")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bjt4a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l0tjc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_knqye")
 text = "Resume
 "
 
@@ -77,6 +87,8 @@ theme_override_fonts/font = ExtResource("2_7j36e")
 theme_override_styles/normal = SubResource("StyleBoxTexture_harur")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ecfui")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bjt4a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bbbrl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ffpb6")
 text = "Quit
 "
 
