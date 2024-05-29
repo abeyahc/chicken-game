@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://menu.gd" id="1_p105b"]
 [ext_resource type="Texture2D" uid="uid://b3qvmfgqjo21v" path="res://Assets/kenney_tiny-town/Tilemap/tilemap_packed.png" id="2_edfhv"]
 [ext_resource type="FontFile" uid="uid://ck6f8thibspcd" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_orwf6"]
+[ext_resource type="Script" path="res://Scripts/Buttons/Start Button.gd" id="4_3povy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iam5v"]
 texture = ExtResource("2_edfhv")
@@ -142,8 +143,6 @@ texture = ExtResource("2_edfhv")
 [sub_resource type="TileSet" id="TileSet_hs8l5"]
 sources/0 = SubResource("TileSetAtlasSource_iam5v")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aos6q"]
-
 [node name="Menu" type="Node2D"]
 position = Vector2(-2, 0)
 script = ExtResource("1_p105b")
@@ -172,20 +171,18 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_orwf6")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/hover = SubResource("StyleBoxEmpty_aos6q")
 text = "Start
 "
 flat = true
+script = ExtResource("4_3povy")
 
 [node name="Options Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_orwf6")
-theme_override_font_sizes/font_size = 25
 text = "Options"
 flat = true
 
@@ -193,7 +190,6 @@ flat = true
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_orwf6")
-theme_override_font_sizes/font_size = 25
 text = "Quit
 "
 flat = true
