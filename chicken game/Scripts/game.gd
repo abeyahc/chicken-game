@@ -4,7 +4,8 @@ extends Node2D
 @onready var player = $Player
 @onready var fox = $fox
 const fox_scene = preload("res://Scenes/fox.tscn")
-@export var num_foxes = 0
+@export var num_foxes = 2
+
 
 
 var paused = false
