@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://s7vn38e4oo1o"]
+[gd_scene load_steps=3 format=3 uid="uid://s7vn38e4oo1o"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_eyypu"]
+[ext_resource type="FontFile" uid="uid://ck6f8thibspcd" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_7j36e"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -32,11 +33,12 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_7j36e")
 text = "Resume"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_7j36e")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
