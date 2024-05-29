@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://co4kv64nh3bd0"]
+[gd_scene load_steps=11 format=3 uid="uid://co4kv64nh3bd0"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_p105b"]
 [ext_resource type="Texture2D" uid="uid://b3qvmfgqjo21v" path="res://Assets/kenney_tiny-town/Tilemap/tilemap_packed.png" id="2_edfhv"]
-[ext_resource type="Texture2D" uid="uid://bx1sx3ye4b54d" path="res://Assets/fonts/minimalpixel bitmap font V2/GUI.png" id="3_hl4bf"]
 [ext_resource type="FontFile" uid="uid://ck6f8thibspcd" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_orwf6"]
+[ext_resource type="Texture2D" uid="uid://cq5vc5fcl0x7d" path="res://Assets/fonts/minimalpixel bitmap font V2/normal-box.png" id="4_8rhwg"]
+[ext_resource type="Texture2D" uid="uid://cfej85wm2dcnw" path="res://Assets/fonts/minimalpixel bitmap font V2/hover-box.png" id="5_sdher"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iam5v"]
 texture = ExtResource("2_edfhv")
@@ -143,27 +144,28 @@ texture = ExtResource("2_edfhv")
 [sub_resource type="TileSet" id="TileSet_hs8l5"]
 sources/0 = SubResource("TileSetAtlasSource_iam5v")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_py8c3"]
-texture = ExtResource("3_hl4bf")
-texture_margin_top = 5.0
-texture_margin_bottom = 6.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ofy0a"]
+texture = ExtResource("4_8rhwg")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3ntj"]
+texture = ExtResource("5_sdher")
+texture_margin_left = 5.0
+texture_margin_top = 10.0
+texture_margin_right = 5.0
+texture_margin_bottom = 10.0
 expand_margin_left = 2.0
+expand_margin_top = 2.0
 expand_margin_right = 2.0
-region_rect = Rect2(145, 81, 46, 14)
+expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nmy6p"]
-texture = ExtResource("3_hl4bf")
-texture_margin_left = 2.0
-texture_margin_top = 5.0
-texture_margin_right = 2.0
-texture_margin_bottom = 5.0
-region_rect = Rect2(145, 98, 46, 13)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjggc"]
-texture = ExtResource("3_hl4bf")
-texture_margin_top = 5.0
-texture_margin_bottom = 5.0
-region_rect = Rect2(145, 98, 46, 13)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nb8lu"]
+texture = ExtResource("4_8rhwg")
+texture_margin_top = 10.0
+texture_margin_bottom = 10.0
 
 [node name="Menu" type="Node2D"]
 position = Vector2(-2, 0)
@@ -192,40 +194,39 @@ alignment = 1
 [node name="Start Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0, 0.301961, 1)
-theme_override_colors/font_pressed_color = Color(0, 0.109804, 0.623529, 1)
-theme_override_colors/font_hover_color = Color(0, 0.108177, 0.624592, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.952956, 0.78689, 0.63991, 1)
+theme_override_colors/font_pressed_color = Color(0.985769, 0.93319, 0.887113, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.933333, 0.886275, 1)
 theme_override_fonts/font = ExtResource("3_orwf6")
-theme_override_styles/normal = SubResource("StyleBoxTexture_py8c3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_nmy6p")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_wjggc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ofy0a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i3ntj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nb8lu")
 text = "Start
 "
 
 [node name="Credits Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0, 0.301961, 1)
-theme_override_colors/font_pressed_color = Color(0, 0.109804, 0.623529, 1)
-theme_override_colors/font_hover_color = Color(0, 0.108177, 0.624592, 1)
+theme_override_colors/font_color = Color(0.952956, 0.78689, 0.63991, 1)
+theme_override_colors/font_pressed_color = Color(0.985769, 0.93319, 0.887113, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.933333, 0.886275, 1)
 theme_override_fonts/font = ExtResource("3_orwf6")
-theme_override_styles/normal = SubResource("StyleBoxTexture_py8c3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_nmy6p")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_wjggc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ofy0a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i3ntj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nb8lu")
 text = "Credits
 "
 
 [node name="Quit Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0, 0.301961, 1)
-theme_override_colors/font_pressed_color = Color(0, 0.109804, 0.623529, 1)
-theme_override_colors/font_hover_color = Color(0, 0.108177, 0.624592, 1)
+theme_override_colors/font_color = Color(0.952956, 0.78689, 0.63991, 1)
+theme_override_colors/font_pressed_color = Color(0.985769, 0.93319, 0.887113, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.933333, 0.886275, 1)
 theme_override_fonts/font = ExtResource("3_orwf6")
-theme_override_styles/normal = SubResource("StyleBoxTexture_py8c3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_nmy6p")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_wjggc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ofy0a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i3ntj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nb8lu")
 text = "Quit
 "
 
@@ -234,7 +235,7 @@ scale = Vector2(2, 2)
 zoom = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Button" to="." method="_on_start_button_pressed"]
