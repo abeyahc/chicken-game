@@ -663,6 +663,7 @@ layer_0/tile_data = PackedInt32Array(-524308, 0, 4, -524306, 65536, 4, -524307, 
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
+process_callback = 0
 position_smoothing_enabled = true
 
 [node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("2_hv1c6")]
