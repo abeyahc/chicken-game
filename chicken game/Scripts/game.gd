@@ -6,7 +6,7 @@ extends Node2D
 const fox_scene = preload("res://Scenes/fox.tscn")
 @export var num_foxes = 2
 
-
+@onready var collisions = $collisions
 
 var paused = false
 
@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
-
+	
 func pauseMenu():
 	if paused:
 		pause_menu.hide()
@@ -29,10 +29,12 @@ func pauseMenu():
 		Engine.time_scale = 0
 		
 	paused = !paused
+
 	
 func spawn_foxes(count):
 	for i in range(count):
 		var fox_instance = fox_scene.instantiate()
 		fox_instance.global_position = Vector2(randi() % 601, randi() % 601)
 		add_child(fox_instance)
-	
+
+

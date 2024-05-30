@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck083i0401a34"]
+[gd_scene load_steps=15 format=3 uid="uid://ck083i0401a34"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ap0as"]
 [ext_resource type="Texture2D" uid="uid://b3qvmfgqjo21v" path="res://Assets/kenney_tiny-town/Tilemap/tilemap_packed.png" id="1_fgo44"]
 [ext_resource type="PackedScene" uid="uid://s7vn38e4oo1o" path="res://Scenes/pause_menu.tscn" id="2_hv1c6"]
 [ext_resource type="PackedScene" uid="uid://ikdluvf2mpq3" path="res://Scenes/player.tscn" id="2_q8hlc"]
+[ext_resource type="Script" path="res://Scripts/collisions.gd" id="3_wyegx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjcrr"]
 texture = ExtResource("1_fgo44")
@@ -333,6 +334,7 @@ texture = ExtResource("1_fgo44")
 11:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:3/0/physics_layer_0/angular_velocity = 0.0
 11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.125, -6.25, 4, -6.125, 4.125, 8, -3.875, 8)
+0:4/next_alternative_id = 4
 0:4/0 = 0
 0:4/0/z_index = 1
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -690,6 +692,7 @@ layer_5/name = "roof5"
 layer_5/tile_data = PackedInt32Array(65549, 458752, 4, 65550, 327680, 4, 65551, 393216, 4)
 layer_6/name = "roof6"
 layer_6/tile_data = PackedInt32Array(720878, 262144, 4, 720879, 458752, 4, 720880, 327680, 4, 720881, 393216, 4)
+script = ExtResource("3_wyegx")
 
 [node name="Player" parent="." instance=ExtResource("2_q8hlc")]
 
