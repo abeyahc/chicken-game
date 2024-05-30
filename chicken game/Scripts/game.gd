@@ -25,7 +25,6 @@ func pauseMenu():
 		pause_menu.hide()
 		Engine.time_scale = 1
 	else:
-		get_tree().paused = true
 		pause_menu.show()
 		Engine.time_scale = 0
 		
