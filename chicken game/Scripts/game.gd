@@ -21,7 +21,7 @@ func _process(delta):
 		pauseMenu()
 	
 func pauseMenu():
-	if paused:
+	if paused: # if resume putton is pressed return back to original screen
 		pause_menu.hide()
 		Engine.time_scale = 1
 	else:

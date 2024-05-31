@@ -6,10 +6,22 @@ var accel = 100
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var healthbar = $Healthbar
+@onready var hurtbox = $hurtbox
 
+var health = 6
 
 var input = Vector2.ZERO
 
+func _ready():
+	health = 6
+	healthbar.init_health(health)
+	
+
+func _set_health(value):
+	health = value
+	if health <= 0:
+		_die()
+	healthbar.health = health
 
 func _physics_process(delta): # run when game starts
 	player_movement(delta)
@@ -52,4 +64,5 @@ func player_movement(delta):
 		
 	move_and_slide()
 		
-	
+func _die():
+	pass

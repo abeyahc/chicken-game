@@ -802,20 +802,6 @@ layer_8/y_sort_enabled = true
 layer_8/tile_data = PackedInt32Array(720878, 262144, 4, 720879, 458752, 4, 720880, 327680, 4, 720881, 393216, 4)
 script = ExtResource("3_wyegx")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -951.0
-offset_top = 48.0
-offset_right = -48.0
-offset_bottom = 244.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 100
-value = 100.0
-
 [node name="Player" parent="." instance=ExtResource("2_q8hlc")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

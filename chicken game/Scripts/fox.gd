@@ -11,7 +11,7 @@ var player = null
 func _ready():
 	# connect animations
 	state_machine = $AnimatedSprite2D/AnimationTree.get("parameters/playback")
-	# connect tiemr's timeout signal to custom function
+	# connect timer's timeout signal to custom function
 	timer.connect("timeout", Callable(self, "_on_Timer_timeout"))
 
 func _physics_process(delta):
