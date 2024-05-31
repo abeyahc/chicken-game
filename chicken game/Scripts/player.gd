@@ -5,10 +5,11 @@ var accel = 100
 
 
 @onready var animated_sprite = $AnimatedSprite2D
-@export var maxHealth = 30
-@onready var currentHealth: int = maxHealth
+@onready var healthbar = $Healthbar
+
 
 var input = Vector2.ZERO
+
 
 func _physics_process(delta): # run when game starts
 	player_movement(delta)

@@ -7,6 +7,7 @@ var player = null
 @onready var animation = $AnimatedSprite2D
 @onready var timer = $Timer
 
+
 func _ready():
 	# connect animations
 	state_machine = $AnimatedSprite2D/AnimationTree.get("parameters/playback")

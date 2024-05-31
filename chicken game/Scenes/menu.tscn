@@ -1,10 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://co4kv64nh3bd0"]
+[gd_scene load_steps=22 format=3 uid="uid://co4kv64nh3bd0"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_p105b"]
 [ext_resource type="Texture2D" uid="uid://b3qvmfgqjo21v" path="res://Assets/kenney_tiny-town/Tilemap/tilemap_packed.png" id="2_edfhv"]
 [ext_resource type="FontFile" uid="uid://ck6f8thibspcd" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_orwf6"]
+[ext_resource type="Texture2D" uid="uid://cso8i1xalsh14" path="res://Assets/title/frame0000.png" id="3_rbjc7"]
 [ext_resource type="Texture2D" uid="uid://cq5vc5fcl0x7d" path="res://Assets/fonts/minimalpixel bitmap font V2/normal-box.png" id="4_8rhwg"]
+[ext_resource type="Texture2D" uid="uid://bf55bnw7kct77" path="res://Assets/title/frame0001.png" id="4_elxbj"]
+[ext_resource type="Texture2D" uid="uid://crccqsy3co0k" path="res://Assets/title/frame0002.png" id="5_n5c1k"]
 [ext_resource type="Texture2D" uid="uid://cfej85wm2dcnw" path="res://Assets/fonts/minimalpixel bitmap font V2/hover-box.png" id="5_sdher"]
+[ext_resource type="Texture2D" uid="uid://dmbio1r7jymv3" path="res://Assets/title/frame0003.png" id="6_qinsr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iam5v"]
 texture = ExtResource("2_edfhv")
@@ -144,6 +148,35 @@ texture = ExtResource("2_edfhv")
 [sub_resource type="TileSet" id="TileSet_hs8l5"]
 sources/0 = SubResource("TileSetAtlasSource_iam5v")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ko87"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rbjc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_elxbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n5c1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qinsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n5c1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_elxbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rbjc7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ofy0a"]
 texture = ExtResource("4_8rhwg")
 texture_margin_left = 10.0
@@ -203,6 +236,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(63, -62)
+sprite_frames = SubResource("SpriteFrames_5ko87")
+autoplay = "default"
+frame_progress = 0.953098
+
 [node name="Start Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -253,7 +292,7 @@ scale = Vector2(2, 2)
 zoom = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Credits Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
