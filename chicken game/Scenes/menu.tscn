@@ -240,7 +240,7 @@ alignment = 1
 position = Vector2(63, -62)
 sprite_frames = SubResource("SpriteFrames_5ko87")
 autoplay = "default"
-frame_progress = 0.953098
+frame_progress = 0.205409
 
 [node name="Start Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
