@@ -3,7 +3,6 @@ extends TileMap
 # Assuming $TileMap is the TileMap node and $Player is the player node
 @onready var collisions = $"."
 @onready var player = $"../Player"
-var layer = 1
 var tile_coordinates = []
 var behind = false
 @onready var color_rect = $ColorRect

@@ -50,8 +50,6 @@ func player_movement(delta):
 	else:
 		velocity = (input * accel) # speeds character up
 		
-
-		
 	move_and_slide()
 		
 	
