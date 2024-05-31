@@ -124,10 +124,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1wf4j"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5fbw5"]
+radius = 4.0
+height = 8.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_yin8l")
 
@@ -138,5 +141,6 @@ animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_1wf4j")
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5fbw5")

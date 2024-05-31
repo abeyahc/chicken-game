@@ -11,7 +11,7 @@ var behind = false
 
 func _process(delta):
 	for i in range(collisions.get_layers_count()): #checks each layer 
-		layer_info(i + 1)
+		layer_info(i + 3)
 
 func layer_info(layer):
 	for cell in collisions.get_used_cells(layer):
