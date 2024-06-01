@@ -24,7 +24,6 @@ func init_health(_health):
 	value = health
 	damagebar.max_value = health # both bars will be completely full
 	damagebar.value = health
-	print(health)
 
 func _on_timer_timeout():
 	damagebar.value = health # damage bar catches up to health bar

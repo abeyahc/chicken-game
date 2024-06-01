@@ -14,7 +14,6 @@ var attacked = false
 
 func _ready():
 	healthbar.init_health(health)
-	
 
 func _physics_process(delta): # run when game starts
 	player_movement(delta)

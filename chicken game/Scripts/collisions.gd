@@ -9,7 +9,7 @@ var behind = false
 
 
 func _process(delta):
-	for i in range(collisions.get_layers_count()): #checks each layer 
+	for i in range(collisions.get_layers_count() - 3): #checks each layer 
 		layer_info(i + 3)
 
 func layer_info(layer):
