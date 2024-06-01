@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://ikdluvf2mpq3"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_yin8l"]
-[ext_resource type="PackedScene" uid="uid://bqh5l2t8a2w3a" path="res://Scenes/healthbar.tscn" id="2_8c5sq"]
+[ext_resource type="PackedScene" path="res://Scenes/healthbar.tscn" id="2_8c5sq"]
 [ext_resource type="Texture2D" uid="uid://b5m428imn8x8q" path="res://Assets/chicken/updated/new-spritesheet.png" id="2_x1viu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6k85"]

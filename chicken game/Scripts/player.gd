@@ -70,7 +70,7 @@ func _set_health(value):
 	healthbar.health = health
 	
 func _die():
-	health = 6
+	pass
 
 func _on_hurtbox_body_entered(body):
 	health -= 1 
