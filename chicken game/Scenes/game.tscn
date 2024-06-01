@@ -809,7 +809,6 @@ zoom = Vector2(4, 4)
 process_callback = 0
 position_smoothing_enabled = true
 
-[node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("2_hv1c6")]
-visible = false
-z_index = 5
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_hv1c6")]

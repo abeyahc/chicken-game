@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqh5l2t8a2w3a"]
+[gd_scene load_steps=6 format=3 uid="uid://ikls04jvshhy"]
 
 [ext_resource type="Script" path="res://Scripts/Healthbar.gd" id="1_akuum"]
 
