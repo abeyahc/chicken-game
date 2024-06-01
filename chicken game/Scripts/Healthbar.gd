@@ -3,7 +3,7 @@ extends ProgressBar
 @onready var timer = $Timer
 @onready var damagebar = $Damagebar
 
-var health = 0
+var health = 0 
 
 func _set_health(new_health):
 	var prev_health = health
@@ -24,10 +24,9 @@ func init_health(_health):
 	value = health
 	damagebar.max_value = health # both bars will be completely full
 	damagebar.value = health
+	print(health)
 
 func _on_timer_timeout():
 	damagebar.value = health # damage bar catches up to health bar
 
-func _on_hurtbox_area_entered(area):
-	health -= 1
 

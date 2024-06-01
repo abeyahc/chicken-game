@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ikls04jvshhy"]
+[gd_scene load_steps=6 format=3 uid="uid://bqh5l2t8a2w3a"]
 
 [ext_resource type="Script" path="res://Scripts/Healthbar.gd" id="1_akuum"]
 
@@ -20,8 +20,8 @@ shadow_offset = Vector2(0, 1)
 bg_color = Color(0.775063, 0.775063, 0.775063, 1)
 
 [node name="Healthbar" type="ProgressBar"]
-z_index = 1
-custom_minimum_size = Vector2(64, 2)
+z_index = 2
+custom_minimum_size = Vector2(16, 2)
 offset_right = 4.0
 offset_bottom = 27.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_3nier")

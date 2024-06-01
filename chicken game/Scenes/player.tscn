@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://ikdluvf2mpq3"]
+[gd_scene load_steps=21 format=3 uid="uid://ikdluvf2mpq3"]
 
-[ext_resource type="Script" path="res://Scripts/Healthbar.gd" id="1_v0x4u"]
-[ext_resource type="PackedScene" uid="uid://ikls04jvshhy" path="res://Scenes/healthbar.tscn" id="2_8c5sq"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_yin8l"]
+[ext_resource type="PackedScene" uid="uid://bqh5l2t8a2w3a" path="res://Scenes/healthbar.tscn" id="2_8c5sq"]
 [ext_resource type="Texture2D" uid="uid://b5m428imn8x8q" path="res://Assets/chicken/updated/new-spritesheet.png" id="2_x1viu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6k85"]
@@ -129,17 +129,20 @@ animations = [{
 radius = 7.0
 height = 14.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jnhl4"]
+radius = 10.0499
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 3
-script = ExtResource("1_v0x4u")
+script = ExtResource("1_yin8l")
 
 [node name="Healthbar" parent="." instance=ExtResource("2_8c5sq")]
-offset_left = -31.0
-offset_top = -32.0
-offset_right = 33.0
-offset_bottom = -25.0
+offset_left = -7.0
+offset_top = -26.0
+offset_right = 9.0
+offset_bottom = -22.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -153,7 +156,10 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5fbw5")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_jnhl4")
 
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

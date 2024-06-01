@@ -8,20 +8,12 @@ var accel = 100
 @onready var healthbar = $Healthbar
 @onready var hurtbox = $hurtbox
 
+var input = Vector2.ZERO
 var health = 6
 
-var input = Vector2.ZERO
-
 func _ready():
-	health = 6
 	healthbar.init_health(health)
 	
-
-func _set_health(value):
-	health = value
-	if health <= 0:
-		_die()
-	healthbar.health = health
 
 func _physics_process(delta): # run when game starts
 	player_movement(delta)
@@ -48,6 +40,12 @@ func _physics_process(delta): # run when game starts
 			animated_sprite.play("down")
 		else:
 			animated_sprite.play("walk")
+	
+	#this is for testing pruposes, change to game over scene
+	if health <= 0:
+		health = 6
+	else:
+		_set_health(health)
 
 func get_input():
 	input.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")) # go left or right
@@ -60,9 +58,20 @@ func player_movement(delta):
 	if input == Vector2.ZERO: # no input
 		velocity = Vector2.ZERO # Stops
 	else:
-		velocity = (input * accel) # speeds character up
+		velocity = input * accel # speeds character up
 		
 	move_and_slide()
-		
+
+
+func _set_health(value):
+	if health <= 0:
+		_die()
+	healthbar._set_health(value)
+	healthbar.health = health
+	
 func _die():
-	pass
+	health = 6
+
+func _on_hurtbox_body_entered(body):
+	health -= 1 
+
