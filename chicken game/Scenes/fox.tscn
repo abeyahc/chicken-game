@@ -395,6 +395,7 @@ radius = 59.0085
 radius = 8.06226
 
 [node name="fox" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 5
 script = ExtResource("1_s7y3g")
 
@@ -425,6 +426,7 @@ position = Vector2(2, -7)
 shape = SubResource("CircleShape2D_0gmdh")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
