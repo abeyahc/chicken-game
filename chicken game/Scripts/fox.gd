@@ -8,12 +8,13 @@ var player = null
 @onready var timer = $Timer
 
 
+
 func _ready():
 	# connect animations
 	state_machine = $AnimatedSprite2D/AnimationTree.get("parameters/playback")
 	# connect timer's timeout signal to custom function
 	timer.connect("timeout", Callable(self, "_on_Timer_timeout"))
-
+	
 func _physics_process(delta):
 	if player_chase:
 		# collide with tiles
