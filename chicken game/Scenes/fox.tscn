@@ -388,8 +388,8 @@ states/idle/node = SubResource("AnimationNodeAnimation_x5bm2")
 states/idle/position = Vector2(347, 158)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_b4con"), "idle", "detect", SubResource("AnimationNodeStateMachineTransition_0g6g0"), "detect", "attack", SubResource("AnimationNodeStateMachineTransition_4aie7"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_2lctl"), "attack", "End", SubResource("AnimationNodeStateMachineTransition_wivip")]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3olm6"]
-radius = 59.0085
+[sub_resource type="CircleShape2D" id="CircleShape2D_wxs7g"]
+radius = 45.1774
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gmdh"]
 radius = 8.06226
@@ -397,6 +397,7 @@ radius = 8.06226
 [node name="fox" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 5
+collision_mask = 3
 script = ExtResource("1_s7y3g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -418,8 +419,9 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-position = Vector2(2, -5)
-shape = SubResource("CircleShape2D_3olm6")
+position = Vector2(2, -7)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_wxs7g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -7)
