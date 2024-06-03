@@ -429,5 +429,10 @@ shape = SubResource("CircleShape2D_0gmdh")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(1, -5)
+rotation = 4.71239
+target_position = Vector2(9.53674e-07, 65)
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
