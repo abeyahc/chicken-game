@@ -36,7 +36,7 @@ func calc_spawn():
 	var fox_instance = fox_scene.instantiate()
 	
 	var over = false
-	var rand_fox_position = Vector2(randi_range(-601, 601), randi_range(-450, 450))
+	var rand_fox_position = Vector2(randi_range(-601, 601), randi_range(-601, 601))
 	var tile_below = collisions.local_to_map(rand_fox_position)
 	var world_tile_below = collisions.map_to_local(tile_below)
 	
