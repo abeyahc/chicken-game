@@ -3,9 +3,11 @@ extends CharacterBody2D
 var state_machine
 var speed = 25
 var player_chase = false
-var player = null
 @onready var animation = $AnimatedSprite2D
 @onready var timer = $Timer
+
+var player = null
+@export var nav_agent: NavigationAgent2D
 
 
 func _ready():
@@ -15,19 +17,31 @@ func _ready():
 	timer.connect("timeout", Callable(self, "_on_Timer_timeout"))
 
 func _physics_process(delta):
+	var direction = Vector2.ZERO
+	
 	if player_chase:
+		direction = nav_agent.get_next_path_position() - global_position
+		
+		velocity = velocity.lerp(direction, delta)
+		move_and_slide()
+	
+	#if player_chase:
 		# collide with tiles
-		move_and_collide(Vector2(0,0)) 
+		#move_and_collide(Vector2(0,0)) 
 
 		# change position of enemy
-		position += (player.position - position) / speed 
+		#position += (player.position - position) / speed 
 		
-		if (player.position.x - position.x) < 0:
-			animation.flip_h = true
-		else:
-			animation.flip_h = false
-	else:
-		state_machine.travel("idle")
+		#if (player.position.x - position.x) < 0:
+			#animation.flip_h = true
+		#else:
+			#animation.flip_h = false
+	#else:
+		#state_machine.travel("idle")
+
+func recalc_path():
+	if player:
+		nav_agent.target_position = player.global_position
 
 func sleep():
 	state_machine.travel("sleep")
@@ -54,3 +68,8 @@ func _on_Timer_timeout():
 	attack()  # Play the attack animation and start chasing
 
 
+
+
+func _on_timer_timeout_nav():
+	recalc_path()
+	nav_agent.target_position = player.global_position

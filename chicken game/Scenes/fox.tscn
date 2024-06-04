@@ -389,21 +389,24 @@ states/idle/position = Vector2(347, 158)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_b4con"), "idle", "detect", SubResource("AnimationNodeStateMachineTransition_0g6g0"), "detect", "attack", SubResource("AnimationNodeStateMachineTransition_4aie7"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_2lctl"), "attack", "End", SubResource("AnimationNodeStateMachineTransition_wivip")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3olm6"]
-radius = 59.0085
+radius = 129.016
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gmdh"]
 radius = 8.06226
 
-[node name="fox" type="CharacterBody2D"]
+[node name="fox" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
 y_sort_enabled = true
 collision_layer = 4
+collision_mask = 9
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_s7y3g")
+nav_agent = NodePath("Guidance/NavigationAgent2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_p6toy")
 animation = &"idle"
-frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
@@ -429,10 +432,58 @@ shape = SubResource("CircleShape2D_0gmdh")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(1, -5)
-rotation = 4.71239
-target_position = Vector2(9.53674e-07, 65)
+[node name="RayCasts" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+
+[node name="N" type="RayCast2D" parent="RayCasts"]
+rotation = 3.14159
+scale = Vector2(1, 0.5)
+collision_mask = 8
+
+[node name="NE" type="RayCast2D" parent="RayCasts"]
+rotation = -2.35619
+scale = Vector2(1, 0.35)
+collision_mask = 8
+
+[node name="E" type="RayCast2D" parent="RayCasts"]
+rotation = -1.5708
+scale = Vector2(1, 0.5)
+collision_mask = 8
+
+[node name="SE" type="RayCast2D" parent="RayCasts"]
+rotation = -0.785398
+scale = Vector2(1, 0.35)
+collision_mask = 8
+
+[node name="S" type="RayCast2D" parent="RayCasts"]
+scale = Vector2(1, 0.5)
+collision_mask = 8
+
+[node name="SW" type="RayCast2D" parent="RayCasts"]
+rotation = 0.785398
+scale = Vector2(1, 0.35)
+collision_mask = 8
+
+[node name="W" type="RayCast2D" parent="RayCasts"]
+rotation = 1.5708
+scale = Vector2(1, 0.5)
+collision_mask = 8
+
+[node name="NW" type="RayCast2D" parent="RayCasts"]
+rotation = 2.35619
+scale = Vector2(1, 0.35)
+collision_mask = 8
+
+[node name="Guidance" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Guidance"]
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="Guidance"]
+wait_time = 0.1
+autostart = true
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout_nav"]

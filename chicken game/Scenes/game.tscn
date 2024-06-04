@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ck083i0401a34"]
+[gd_scene load_steps=16 format=3 uid="uid://ck083i0401a34"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ap0as"]
 [ext_resource type="Texture2D" uid="uid://b3qvmfgqjo21v" path="res://Assets/kenney_tiny-town/Tilemap/tilemap_packed.png" id="1_fgo44"]
@@ -1024,6 +1024,12 @@ texture = ExtResource("1_fgo44")
 [sub_resource type="TileSet" id="TileSet_vul6b"]
 sources/1 = SubResource("TileSetAtlasSource_tjcrr")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cwi7y"]
+vertices = PackedVector2Array(911, -478, 910, 590, -783, 586, -783, -487)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-793, -498, 922, -488, 920, 601, -793, 596)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ap0as")
@@ -1085,3 +1091,6 @@ offset_left = -2930.0
 offset_top = -1756.0
 offset_right = -2930.0
 offset_bottom = -1756.0
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_cwi7y")
