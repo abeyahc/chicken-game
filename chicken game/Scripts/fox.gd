@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var state_machine
-var speed = 2
+var speed = 100
 var acceleration = 7
 var player_chase = false
 @onready var animation = $AnimatedSprite2D
@@ -22,8 +22,8 @@ func _physics_process(delta):
 	
 	if player_chase:
 		direction = nav_agent.get_next_path_position() - global_position
-		
-		velocity = velocity.lerp(direction * speed, acceleration * delta)
+		direction = direction.normalized()
+		velocity = velocity.lerp(direction * speed, acceleration*delta)
 		move_and_slide()
 	
 	#if player_chase:
@@ -57,6 +57,7 @@ func _on_detection_area_body_exited(body):
 	player = null
 	player_chase = false
 	timer.stop()
+	velocity = Vector2.ZERO
 	
 func start_detect_sequence():
 	# Play the detect animation and start the timer
@@ -66,10 +67,14 @@ func start_detect_sequence():
 func _on_Timer_timeout():
 	# When the timer times out, start chasing the player
 	player_chase = true
+	recalc_path()
 	attack()  # Play the attack animation and start chasing
 
-
-
+func _on_path_completed():
+	player_chase = false
+	velocity = Vector2.ZERO  # Stop movement when the path is completed
+	sleep()  # Transition to sleep state if needed
+	
 
 func _on_timer_timeout_nav():
 	recalc_path()

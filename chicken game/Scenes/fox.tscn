@@ -478,8 +478,6 @@ collision_mask = 8
 [node name="Guidance" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Guidance"]
-path_max_distance = 200.0
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="Guidance"]
 wait_time = 0.1
@@ -488,3 +486,4 @@ autostart = true
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout_nav"]
+[connection signal="timeout" from="Guidance/Timer" to="." method="_on_timer_timeout_nav"]
