@@ -202,6 +202,10 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_s7y3g")
 nav_agent = NodePath("Guidance/NavigationAgent2D")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(131, -1)
+collision_mask = 8
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_p6toy")
@@ -223,53 +227,9 @@ shape = SubResource("CircleShape2D_0gmdh")
 wait_time = 0.5
 one_shot = true
 
-[node name="RayCasts" type="Node2D" parent="."]
-visible = false
-position = Vector2(0, -3)
-
-[node name="N" type="RayCast2D" parent="RayCasts"]
-rotation = 3.14159
-scale = Vector2(1, 0.5)
-collision_mask = 8
-
-[node name="NE" type="RayCast2D" parent="RayCasts"]
-rotation = -2.35619
-scale = Vector2(1, 0.35)
-collision_mask = 8
-
-[node name="E" type="RayCast2D" parent="RayCasts"]
-rotation = -1.5708
-scale = Vector2(1, 0.5)
-collision_mask = 8
-
-[node name="SE" type="RayCast2D" parent="RayCasts"]
-rotation = -0.785398
-scale = Vector2(1, 0.35)
-collision_mask = 8
-
-[node name="S" type="RayCast2D" parent="RayCasts"]
-scale = Vector2(1, 0.5)
-collision_mask = 8
-
-[node name="SW" type="RayCast2D" parent="RayCasts"]
-rotation = 0.785398
-scale = Vector2(1, 0.35)
-collision_mask = 8
-
-[node name="W" type="RayCast2D" parent="RayCasts"]
-rotation = 1.5708
-scale = Vector2(1, 0.5)
-collision_mask = 8
-
-[node name="NW" type="RayCast2D" parent="RayCasts"]
-rotation = 2.35619
-scale = Vector2(1, 0.35)
-collision_mask = 8
-
 [node name="Guidance" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Guidance"]
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="Guidance"]
 wait_time = 0.1

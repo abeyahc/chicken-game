@@ -3,7 +3,7 @@ extends Node2D
 @onready var player = $Player
 @onready var fox = $fox
 const fox_scene = preload("res://Scenes/fox.tscn")
-@export var num_foxes = 10
+@export var num_foxes = 0
 @onready var collisions = $NavigationRegion2D/collisions
 
 var tile_coll_coordinates = []
