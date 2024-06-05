@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 var state_machine
-var speed = 60
+var speed = 2
+var acceleration = 7
 var player_chase = false
 @onready var animation = $AnimatedSprite2D
 @onready var timer = $Timer
@@ -22,7 +23,7 @@ func _physics_process(delta):
 	if player_chase:
 		direction = nav_agent.get_next_path_position() - global_position
 		
-		velocity = velocity.lerp(direction, delta)
+		velocity = velocity.lerp(direction * speed, acceleration * delta)
 		move_and_slide()
 	
 	#if player_chase:
@@ -72,4 +73,3 @@ func _on_Timer_timeout():
 
 func _on_timer_timeout_nav():
 	recalc_path()
-	nav_agent.target_position = player.global_position
