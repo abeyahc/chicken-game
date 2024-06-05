@@ -1,11 +1,7 @@
-[gd_scene load_steps=47 format=3 uid="uid://cs2u4y8erat1"]
+[gd_scene load_steps=46 format=3 uid="uid://cs2u4y8erat1"]
 
 [ext_resource type="Texture2D" uid="uid://dtm1qb0b1kqca" path="res://Assets/fox/Fox Sprite Sheet.png" id="1_f5wba"]
 [ext_resource type="Script" path="res://Scripts/fox.gd" id="1_s7y3g"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vqntk"]
-atlas = ExtResource("1_f5wba")
-region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mcw45"]
 atlas = ExtResource("1_f5wba")
@@ -110,9 +106,6 @@ region = Rect2(160, 160, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_p6toy"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vqntk")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mcw45")
 }, {
@@ -383,7 +376,7 @@ switch_mode = 2
 states/attack/node = SubResource("AnimationNodeAnimation_7x66q")
 states/attack/position = Vector2(453, 51)
 states/detect/node = SubResource("AnimationNodeAnimation_q2m8h")
-states/detect/position = Vector2(347, 51)
+states/detect/position = Vector2(331, 51)
 states/idle/node = SubResource("AnimationNodeAnimation_x5bm2")
 states/idle/position = Vector2(347, 158)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_b4con"), "idle", "detect", SubResource("AnimationNodeStateMachineTransition_0g6g0"), "detect", "attack", SubResource("AnimationNodeStateMachineTransition_4aie7"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_2lctl"), "attack", "End", SubResource("AnimationNodeStateMachineTransition_wivip")]
@@ -407,6 +400,7 @@ nav_agent = NodePath("Guidance/NavigationAgent2D")
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_p6toy")
 animation = &"idle"
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
