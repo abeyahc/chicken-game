@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var state_machine
-var speed = 25
+var speed = 60
 var player_chase = false
 @onready var animation = $AnimatedSprite2D
 @onready var timer = $Timer
