@@ -10,17 +10,23 @@ var player_chase = false
 @onready var ray_cast_2d = $RayCast2D
 var zone = false
 var player = null
+var detection_var = false
 @export var nav_agent: NavigationAgent2D
 var direction = Vector2.ZERO
 
 
 func _physics_process(delta):
-	if player and (player_chase == false):
+	if player and zone:
 		var direction = (player.global_position - global_position).normalized()
 		var angle = direction.angle()
 		ray_cast_2d.rotation = angle
-
-	if (player_chase == true) and (ray_cast_2d.is_colliding() != true):
+	
+	if (ray_cast_2d.is_colliding() == false) and (player_chase == false) and (detection_var == false):
+		print(ray_cast_2d.is_colliding())
+		detection_var = true
+		detection()
+		
+	if (player_chase == true):
 		animation.play("attack")
 		direction = nav_agent.get_next_path_position() - global_position
 		direction = direction.normalized()
@@ -37,13 +43,13 @@ func _physics_process(delta):
 func _on_detection_area_body_entered(body):
 	player = body
 	zone = true
-	if ray_cast_2d.is_colliding() == true:
-		huh = true
-		timer.start()
+	detection()
 	
 func _on_detection_area_body_exited(body):
 	player = null
 	player_chase = false
+	zone = false
+	detection_var = false
 	timer.stop()
 
 func _on_timer_timeout_nav():
@@ -52,10 +58,11 @@ func _on_timer_timeout_nav():
 func _on_timer_timeout():
 	player_chase = true
 	huh = false
-	
-
-
 
 func recalc_path():
 	if player:
 		nav_agent.target_position = player.global_position
+		
+func detection():
+	huh = true
+	timer.start()
