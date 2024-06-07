@@ -13,6 +13,7 @@ var detection_var = false
 @export var nav_agent: NavigationAgent2D
 var direction = Vector2.ZERO
 @onready var player = $"../Player"
+var escaping = false
 
 
 func _physics_process(delta):
@@ -21,11 +22,13 @@ func _physics_process(delta):
 	ray_cast_2d.rotation = angle
 	
 	if (ray_cast_2d.is_colliding() == false) and (player_chase == false) and (detection_var == false) and zone:
-		print(ray_cast_2d.is_colliding())
 		detection_var = true
 		detection()
-		
-	if (player_chase == true):
+	
+	if escaping and global_position.distance_to(nav_agent.get_final_position()) < 1.0:
+		escaping = false
+	
+	if (player_chase == true) or escaping:
 		animation.play("attack")
 		direction = nav_agent.get_next_path_position() - global_position
 		direction = direction.normalized()
@@ -38,7 +41,7 @@ func _physics_process(delta):
 			animation.flip_h = false
 	elif (player_chase == false) and (huh == false):
 		animation.play("idle")
-
+		velocity = Vector2.ZERO
 func _on_detection_area_body_entered(body):
 	zone = true
 	
@@ -46,6 +49,7 @@ func _on_detection_area_body_exited(body):
 	player_chase = false
 	zone = false
 	detection_var = false
+	escaping= true
 	timer.stop()
 
 func _on_timer_timeout_nav():
@@ -61,4 +65,5 @@ func recalc_path():
 		
 func detection():
 	huh = true
+	animation.play("detect")
 	timer.start()
