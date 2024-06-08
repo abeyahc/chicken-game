@@ -74,7 +74,7 @@ func _set_health(value):
 	healthbar.health = health
 	
 func _die():
-	pass
+	get_tree().change_scene_to_file("res://Scenes/death.tscn")
 
 func _on_hurtbox_body_entered(body):
 	attacked = true

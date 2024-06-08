@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://b82dc703lp5sw"]
+
+[ext_resource type="Script" path="res://Scenes/death.gd" id="1_g31ca"]
+[ext_resource type="FontFile" uid="uid://ck6f8thibspcd" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_j5wmj"]
+[ext_resource type="Texture2D" uid="uid://cq5vc5fcl0x7d" path="res://Assets/fonts/minimalpixel bitmap font V2/normal-box.png" id="2_5kvsu"]
+[ext_resource type="Texture2D" uid="uid://cfej85wm2dcnw" path="res://Assets/fonts/minimalpixel bitmap font V2/hover-box.png" id="3_a5h0u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qh1un"]
+texture = ExtResource("2_5kvsu")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asx80"]
+texture = ExtResource("3_a5h0u")
+texture_margin_left = 5.0
+texture_margin_top = 10.0
+texture_margin_right = 5.0
+texture_margin_bottom = 10.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rssjd"]
+texture = ExtResource("2_5kvsu")
+texture_margin_top = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h53al"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_coaq2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3aoi1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f824x"]
+
+[node name="Death" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2739.0
+offset_top = -1387.0
+offset_right = -2739.0
+offset_bottom = -1387.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.82149, 3.82149)
+script = ExtResource("1_g31ca")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -58.0
+offset_right = 59.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Retry" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952956, 0.78689, 0.63991, 1)
+theme_override_colors/font_pressed_color = Color(0.985769, 0.93319, 0.887113, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.933333, 0.886275, 1)
+theme_override_fonts/font = ExtResource("1_j5wmj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qh1un")
+theme_override_styles/hover = SubResource("StyleBoxTexture_asx80")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rssjd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h53al")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_coaq2")
+text = "Retry
+"
+
+[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952956, 0.78689, 0.63991, 1)
+theme_override_colors/font_pressed_color = Color(0.985769, 0.93319, 0.887113, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.933333, 0.886275, 1)
+theme_override_fonts/font = ExtResource("1_j5wmj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qh1un")
+theme_override_styles/hover = SubResource("StyleBoxTexture_asx80")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rssjd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h53al")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_coaq2")
+text = "Menu
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952956, 0.78689, 0.63991, 1)
+theme_override_colors/font_pressed_color = Color(0.985769, 0.93319, 0.887113, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.933333, 0.886275, 1)
+theme_override_fonts/font = ExtResource("1_j5wmj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qh1un")
+theme_override_styles/hover = SubResource("StyleBoxTexture_asx80")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rssjd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3aoi1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f824x")
+text = "Quit
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -111.633
+offset_right = -23.0
+offset_bottom = -88.6325
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.27728, 2.27728)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.952941, 0.788235, 0.639216, 1)
+theme_override_colors/font_shadow_color = Color(0.282353, 0.168627, 0.0117647, 1)
+theme_override_colors/font_outline_color = Color(0.28336, 0.169497, 0.0098115, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("1_j5wmj")
+text = "You Died!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
