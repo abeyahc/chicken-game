@@ -14,11 +14,8 @@ var detection_var = false
 var direction = Vector2.ZERO
 @onready var player = $"../Player"
 var escaping = false
-
-
 var wondering = false
 var idle_con = true
-
 @onready var idle_time = $Idle
 
 func _ready():
@@ -109,4 +106,5 @@ func idle_condition(delta):
 	if global_position.distance_to(nav_agent.get_final_position()) < 1.0:
 		wondering = false
 		idle_con = true
+		idle_time.start()
 	
