@@ -203,6 +203,7 @@ script = ExtResource("1_s7y3g")
 nav_agent = NodePath("Guidance/NavigationAgent2D")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -5)
 target_position = Vector2(131, -1)
 collision_mask = 8
 
@@ -223,19 +224,24 @@ shape = SubResource("CircleShape2D_3olm6")
 position = Vector2(2, -7)
 shape = SubResource("CircleShape2D_0gmdh")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Detection" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Idle" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="Guidance" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Guidance"]
+debug_enabled = true
 
-[node name="Timer" type="Timer" parent="Guidance"]
+[node name="Update" type="Timer" parent="Guidance"]
 wait_time = 0.1
 autostart = true
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Guidance/Timer" to="." method="_on_timer_timeout_nav"]
+[connection signal="timeout" from="Detection" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Idle" to="." method="_on_idle_timeout"]
+[connection signal="timeout" from="Guidance/Update" to="." method="_on_timer_timeout_nav"]
