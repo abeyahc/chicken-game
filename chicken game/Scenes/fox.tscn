@@ -234,7 +234,6 @@ wait_time = 5.0
 [node name="Guidance" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Guidance"]
-debug_enabled = true
 
 [node name="Update" type="Timer" parent="Guidance"]
 wait_time = 0.1

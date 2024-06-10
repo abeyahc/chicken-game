@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b82dc703lp5sw"]
+[gd_scene load_steps=12 format=3 uid="uid://bt4mbgtedmevt"]
 
 [ext_resource type="Script" path="res://Scenes/death.gd" id="1_g31ca"]
 [ext_resource type="FontFile" uid="uid://ck6f8thibspcd" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_j5wmj"]

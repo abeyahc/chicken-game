@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwrgho0t1ohdf"]
+[gd_scene load_steps=4 format=3 uid="uid://bokq2bhxj8f4n"]
 
 [ext_resource type="Texture2D" uid="uid://dae5pgmn48oei" path="res://Assets/Objects/battery.png" id="1_4qwkm"]
 [ext_resource type="Script" path="res://Scripts/Egg.gd" id="1_362te"]

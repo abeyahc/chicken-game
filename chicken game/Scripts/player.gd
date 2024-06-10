@@ -7,6 +7,7 @@ var accel = 100
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var healthbar = $Healthbar
 @onready var hurtbox = $hurtbox
+@onready var death = $"../CanvasLayer/Death"
 
 var input = Vector2.ZERO
 var health = 100
@@ -45,7 +46,7 @@ func _physics_process(delta): # run when game starts
 		health -= 1
 	#this is for testing pruposes, change to game over scene
 	if health <= 0:
-		health = 6
+		_die()
 	else:
 		_set_health(health)
 	
@@ -74,7 +75,7 @@ func _set_health(value):
 	healthbar.health = health
 	
 func _die():
-	get_tree().change_scene_to_file("res://Scenes/death.tscn")
+		death.set_health(health)  # Pass the health value to the death scene
 
 func _on_hurtbox_body_entered(body):
 	attacked = true

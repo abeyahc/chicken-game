@@ -1,6 +1,8 @@
 extends Area2D
 
-
+var point = 1
 
 func _on_body_entered(body):
-	queue_free()
+	var game = get_parent()
+	game.add_score(point)
+	

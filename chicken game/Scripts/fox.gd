@@ -87,9 +87,9 @@ func _on_idle_timeout():
 
 func idle():
 	wondering = true
-	nav_agent.target_position = Vector2(randi_range(-601, 601), randi_range(-601, 601))
+	nav_agent.target_position = Vector2(randi_range(-601, 601), randi_range(-475, 600))
 	while(nav_agent.is_target_reachable() != true):
-		nav_agent.target_position = Vector2(randi_range(-601, 601), randi_range(-601, 601))
+		nav_agent.target_position = Vector2(randi_range(-601, 601), randi_range(-475, 600))
 
 func idle_condition(delta):
 	animation.play("attack")
