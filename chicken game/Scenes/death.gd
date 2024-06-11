@@ -18,7 +18,6 @@ func _physics_process(delta):
 		Global.high_wave = Global.curr_wave
 		Global.curr_wave = 1
 		Global.points = 0
-
 	
 	if is_dead:
 		visible = is_dead

@@ -141,7 +141,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"detect",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -210,7 +210,7 @@ collision_mask = 8
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_p6toy")
-animation = &"attack"
+animation = &"detect"
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 0
@@ -225,7 +225,7 @@ position = Vector2(2, -7)
 shape = SubResource("CircleShape2D_0gmdh")
 
 [node name="Detection" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.15
 one_shot = true
 
 [node name="Idle" type="Timer" parent="."]

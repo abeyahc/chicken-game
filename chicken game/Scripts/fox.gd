@@ -80,12 +80,11 @@ func _on_timer_timeout():
 func recalc_path():
 	if zone and player_chase:
 		nav_agent.target_position = player.global_position
-		
+
 func detection():
 	huh = true
 	animation.play("detect")
 	timer.start()
-
 
 func _on_idle_timeout():
 	idle_con = false
