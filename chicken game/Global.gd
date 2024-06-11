@@ -1,6 +1,8 @@
 extends Node
 
-var high_score = 0
-var current_score: int
-var previous_score: int
 
+var high_wave = 1
+var curr_wave = 1
+var previous_wave = 1
+
+var points = 0

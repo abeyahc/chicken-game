@@ -3,6 +3,7 @@ extends Area2D
 var point = 1
 
 func _on_body_entered(body):
-	Global.current_score += point
+	Global.points += point
+	print(Global.points)
 	queue_free()
 	

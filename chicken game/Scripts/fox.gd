@@ -33,6 +33,9 @@ func _physics_process(delta):
 	
 	if escaping and global_position.distance_to(nav_agent.get_final_position()) < 1.0:
 		escaping = false
+		wondering = false
+		idle_con = true
+		idle_time.start()
 	
 	if (player_chase == true) or escaping:
 		animation.play("attack")
@@ -53,6 +56,9 @@ func _physics_process(delta):
 			idle()
 		elif (idle_con == false) and wondering:
 			idle_condition(delta)
+		elif wondering and idle_con:
+			var wondering = false
+			var idle_con = true
 
 func _on_detection_area_body_entered(body):
 	zone = true

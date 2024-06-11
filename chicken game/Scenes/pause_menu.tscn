@@ -70,6 +70,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(0.952956, 0.78689, 0.63991, 1)
 theme_override_colors/font_pressed_color = Color(0.985769, 0.93319, 0.887113, 1)

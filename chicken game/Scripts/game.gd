@@ -4,8 +4,8 @@ extends Node2D
 @onready var fox = $fox
 const fox_scene = preload("res://Scenes/fox.tscn")
 const egg_scene = preload("res://Scenes/Egg.tscn")
-@export var num_foxes = 5
-@export var num_egg = 15
+@export var num_foxes = 2
+@export var num_egg = 4
 @onready var collisions = $NavigationRegion2D/collisions
 var tile_coll_coordinates = []
 
@@ -28,12 +28,20 @@ func _ready():
 		tile_coll_coordinates.append(world_position)
 	
 	spawn_foxes(num_foxes)
+	print("spawned", num_foxes)
 	spawn_egg(num_egg)
+	print("spawned", num_egg)
 	
-	
-	
-	
-	
+func _physics_process(delta):
+	if Global.points == num_egg:
+		num_foxes = 1
+		spawn_foxes(num_foxes)
+		print("spawned", num_foxes)
+		num_egg += 2
+		spawn_egg(num_egg)
+		print("spawned", num_egg)
+		Global.points = 0
+		Global.curr_wave += 1
 func spawn_foxes(count):
 	for i in range(count):
 		fox_calc_spawn()

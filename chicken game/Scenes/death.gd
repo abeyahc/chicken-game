@@ -13,11 +13,12 @@ func _ready() -> void:
 	is_dead = false
 
 func _physics_process(delta):
-	Global.previous_score = Global.current_score
-	if Global.current_score > Global.high_score:
-		Global.high_score = Global.current_score
-	Global.current_score = 0
-	print(Global.high_score)
+	Global.previous_wave = Global.curr_wave
+	if Global.curr_wave > Global.high_wave:
+		Global.high_wave = Global.curr_wave
+		Global.curr_wave = 1
+		Global.points = 0
+
 	
 	if is_dead:
 		visible = is_dead
