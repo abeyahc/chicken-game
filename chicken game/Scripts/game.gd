@@ -10,10 +10,6 @@ const egg_scene = preload("res://Scenes/Egg.tscn")
 var tile_coll_coordinates = []
 
 
-var high_score = 0
-var current_score = 0
-var previous_score = 0
-
 func _ready():
 	randomize()
 	for cell in collisions.get_used_cells(0):
@@ -30,9 +26,14 @@ func _ready():
 		# Convert the cell coordinates to world position if needed
 		var world_position = collisions.map_to_local(cell)
 		tile_coll_coordinates.append(world_position)
-		
+	
 	spawn_foxes(num_foxes)
 	spawn_egg(num_egg)
+	
+	
+	
+	
+	
 func spawn_foxes(count):
 	for i in range(count):
 		fox_calc_spawn()
@@ -79,6 +80,6 @@ func egg_calc_spawn():
 		egg_instance.global_position = world_tile_below
 		add_child(egg_instance)
 
-func add_score(points):
-	current_score += points
-	print(current_score)
+
+
+

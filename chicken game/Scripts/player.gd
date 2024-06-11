@@ -4,6 +4,7 @@ const max_speed = 200
 var accel = 100
 
 
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var healthbar = $Healthbar
 @onready var hurtbox = $hurtbox
@@ -49,7 +50,7 @@ func _physics_process(delta): # run when game starts
 		_die()
 	else:
 		_set_health(health)
-	
+
 
 
 func get_input():

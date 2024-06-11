@@ -3,20 +3,31 @@ extends Control
 @onready var game = $"../.."
 
 var player_health = 1
-var is_paused: bool = false
+var is_dead:bool = false:
+	set(value):
+		is_dead = value
+		visible = is_dead
+		get_tree().paused = is_dead
 
 func _ready() -> void:
-	is_paused = false
-	visible = is_paused
+	is_dead = false
+
+func _physics_process(delta):
+	Global.previous_score = Global.current_score
+	if Global.current_score > Global.high_score:
+		Global.high_score = Global.current_score
+	Global.current_score = 0
+	print(Global.high_score)
+	
+	if is_dead:
+		visible = is_dead
+		get_tree().paused = is_dead
 
 func set_health(value):
 	player_health = value
 	if player_health <= 0:
-		is_paused = true
-		visible = is_paused
-
-func _unhandled_input(event: InputEvent) -> void:
-	pass  # We don't handle input directly here, as pause state is tied to player_health
+		is_dead = !is_dead
+		
 
 func _on_retry_pressed():
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
