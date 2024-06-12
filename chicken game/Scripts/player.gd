@@ -11,12 +11,13 @@ var accel = 100
 @onready var death = $"../CanvasLayer/Death"
 
 var input = Vector2.ZERO
-var health = 100
 var attacked = false
 
 func _ready():
-	healthbar.init_health(health)
-
+	Global.hp = 100
+	healthbar.init_health(Global.hp)
+	
+	
 func _physics_process(delta): # run when game starts
 	player_movement(delta)
 	
@@ -44,12 +45,10 @@ func _physics_process(delta): # run when game starts
 			animated_sprite.play("walk")
 
 	if attacked == true:
-		health -= 1
-	#this is for testing pruposes, change to game over scene
-	if health <= 0:
-		_die()
-	else:
-		_set_health(health)
+		Global.hp -= 1
+
+	if Global.hp > 0:
+		_set_health(Global.hp)
 
 
 
@@ -70,13 +69,9 @@ func player_movement(delta):
 
 
 func _set_health(value):
-	if health <= 0:
-		_die()
 	healthbar._set_health(value)
-	healthbar.health = health
-	
-func _die():
-		death.set_health(health)  # Pass the health value to the death scene
+	healthbar.health = Global.hp
+
 
 func _on_hurtbox_body_entered(body):
 	attacked = true

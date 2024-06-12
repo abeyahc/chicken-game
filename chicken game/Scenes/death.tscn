@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bt4mbgtedmevt"]
+[gd_scene load_steps=13 format=3 uid="uid://bt4mbgtedmevt"]
 
 [ext_resource type="Script" path="res://Scenes/death.gd" id="1_g31ca"]
 [ext_resource type="FontFile" uid="uid://ck6f8thibspcd" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_j5wmj"]
 [ext_resource type="Texture2D" uid="uid://cq5vc5fcl0x7d" path="res://Assets/fonts/minimalpixel bitmap font V2/normal-box.png" id="2_5kvsu"]
 [ext_resource type="Texture2D" uid="uid://cfej85wm2dcnw" path="res://Assets/fonts/minimalpixel bitmap font V2/hover-box.png" id="3_a5h0u"]
+[ext_resource type="Script" path="res://Scripts/Wave.gd" id="5_7byjv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qh1un"]
 texture = ExtResource("2_5kvsu")
@@ -134,6 +135,29 @@ theme_override_fonts/font = ExtResource("1_j5wmj")
 text = "You Died!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 62.0
+offset_right = 120.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Results" type="RichTextLabel" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "You survived 1 wave
+Your highest is 1
+
+"
+script = ExtResource("5_7byjv")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
