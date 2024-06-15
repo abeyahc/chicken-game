@@ -225,11 +225,12 @@ position = Vector2(2, -7)
 shape = SubResource("CircleShape2D_0gmdh")
 
 [node name="Detection" type="Timer" parent="."]
-wait_time = 0.15
+wait_time = 0.25
 one_shot = true
 
 [node name="Idle" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="Guidance" type="Node2D" parent="."]
 
@@ -245,6 +246,6 @@ autostart = true
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
-[connection signal="timeout" from="Detection" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Detection" to="." method="_on_detection_timeout"]
 [connection signal="timeout" from="Idle" to="." method="_on_idle_timeout"]
 [connection signal="timeout" from="Guidance/Update" to="." method="_on_timer_timeout_nav"]
