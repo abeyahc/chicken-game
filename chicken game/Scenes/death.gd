@@ -2,7 +2,6 @@ extends Control
 
 @onready var game = $"../.."
 
-var player_health = 1
 var is_dead:bool = false:
 	set(value):
 		is_dead = value
