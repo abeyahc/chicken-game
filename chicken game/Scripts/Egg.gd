@@ -1,8 +1,6 @@
 extends Area2D
 
-var point = 1
-
-func _on_body_entered(body):
-	Global.points += point
+func _on_body_entered(body): #if player touches the egg score is increased by 1 and then is eliminated
+	Global.points += 1
 	queue_free()
 	

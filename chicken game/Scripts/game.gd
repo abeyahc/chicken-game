@@ -11,40 +11,47 @@ var tile_coll_coordinates = []
 var healers = 1
 
 func _ready():
-	randomize()
-	Global.curr_wave = 1
-	Global.num_egg = 4
-	Global.curr_wave = 1
+	Global.curr_wave = 1 #when scene is first played current wave is equal to 1
+	Global.num_egg = 4 #when scene is first played number of eggs is equal to 4
+	
+	
+	# the next 3 loops collect all of the coords with all of the layers with collision to avoid objects and enemies spawning over
 	for cell in collisions.get_used_cells(0):
-		# Convert the cell coordinates to world position if needed
+		# Convert the cell coordinates to world position
 		var world_position = collisions.map_to_local(cell)
 		tile_coll_coordinates.append(world_position)
 
 	for cell in collisions.get_used_cells(2):
-		# Convert the cell coordinates to world position if needed
+		# Convert the cell coordinates to world position 
 		var world_position = collisions.map_to_local(cell)
 		tile_coll_coordinates.append(world_position)
 
 	for cell in collisions.get_used_cells(3):
-		# Convert the cell coordinates to world position if needed
+		# Convert the cell coordinates to world position 
 		var world_position = collisions.map_to_local(cell)
 		tile_coll_coordinates.append(world_position)
 	
+	#spawn foxes, eggs and healers
 	spawn_foxes(num_foxes)
 	spawn_egg(Global.num_egg)
 	spawn_healer(healers)
 	
 func _physics_process(delta):
-	if Global.points == Global.num_egg:
-		num_foxes = 1
+	if Global.points == Global.num_egg: #if number of points is equal to the number of total eggs
+		#Restarts the number of foxes and then spawns
+		num_foxes = 1 
 		spawn_foxes(num_foxes)
+		#adds 2 more to the total of number of eggs and then spawns them
 		Global.num_egg += 2
 		spawn_egg(Global.num_egg)
+		#Restarts the points and the current wave increases by 1
 		Global.points = 0
 		Global.curr_wave += 1
+		#2 healers spawn
 		spawn_healer(2)
 
 func spawn_healer(count):
+	
 	for i in range(count):
 		healer_calc_spawn()
 
@@ -66,7 +73,6 @@ func healer_calc_spawn():
 	else:
 		healer_instance.global_position = world_tile_below
 		add_child(healer_instance)
-
 
 
 func spawn_foxes(count):
