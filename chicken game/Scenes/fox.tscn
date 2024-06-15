@@ -234,6 +234,9 @@ wait_time = 5.0
 [node name="Guidance" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Guidance"]
+navigation_layers = 9
+path_postprocessing = 1
+avoidance_enabled = true
 debug_enabled = true
 
 [node name="Update" type="Timer" parent="Guidance"]

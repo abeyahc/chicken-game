@@ -6,7 +6,7 @@ const fox_scene = preload("res://Scenes/fox.tscn")
 const egg_scene = preload("res://Scenes/Egg.tscn")
 const healing = preload("res://Scenes/healer.tscn")
 @export var num_foxes = 2
-@onready var collisions = $NavigationRegion2D/collisions
+@onready var collisions = $collisions
 var tile_coll_coordinates = []
 var healers = 1
 

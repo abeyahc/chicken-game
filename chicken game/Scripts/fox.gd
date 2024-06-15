@@ -31,7 +31,7 @@ func _physics_process(delta):
 		detection_var = true
 		detection()
 	
-	if escaping and global_position.distance_to(nav_agent.get_final_position()) < 1.0:
+	if escaping and global_position.distance_to(nav_agent.get_final_position()) < 5.0:
 		escaping = false
 		wondering = false
 		idle_con = true
@@ -108,7 +108,7 @@ func idle_condition(delta):
 	else:
 		animation.flip_h = false
 	
-	if global_position.distance_to(nav_agent.get_final_position()) < 1.0:
+	if global_position.distance_to(nav_agent.get_final_position()) < 10.0:
 		wondering = false
 		idle_con = true
 		idle_time.start()
