@@ -1,10 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://ck083i0401a34"]
+[gd_scene load_steps=36 format=3 uid="uid://ck083i0401a34"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ap0as"]
 [ext_resource type="Texture2D" uid="uid://b3qvmfgqjo21v" path="res://Assets/kenney_tiny-town/Tilemap/tilemap_packed.png" id="1_fgo44"]
 [ext_resource type="PackedScene" uid="uid://s7vn38e4oo1o" path="res://Scenes/pause_menu.tscn" id="2_hv1c6"]
 [ext_resource type="PackedScene" uid="uid://ikdluvf2mpq3" path="res://Scenes/player.tscn" id="2_q8hlc"]
 [ext_resource type="Script" path="res://Scripts/collisions.gd" id="3_wyegx"]
+[ext_resource type="PackedScene" uid="uid://cs2u4y8erat1" path="res://Scenes/fox.tscn" id="5_86eca"]
 [ext_resource type="Script" path="res://Scripts/Current Waves.gd" id="5_epjx0"]
 [ext_resource type="PackedScene" uid="uid://bt4mbgtedmevt" path="res://Scenes/death.tscn" id="6_ld37s"]
 [ext_resource type="Script" path="res://Scripts/Eggs.gd" id="6_snoas"]
@@ -1279,8 +1280,11 @@ layer_1/tile_data = PackedInt32Array(-262157, 65537, 1, -262156, 65537, 1, -2621
 
 [node name="Player" parent="." instance=ExtResource("2_q8hlc")]
 z_index = 0
+position = Vector2(1000, 1000)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="fox" parent="." instance=ExtResource("5_86eca")]
+
+[node name="Camera2D" type="Camera2D" parent="fox"]
 zoom = Vector2(4, 4)
 process_callback = 0
 position_smoothing_enabled = true

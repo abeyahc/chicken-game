@@ -5,7 +5,7 @@ extends Node2D
 const fox_scene = preload("res://Scenes/fox.tscn")
 const egg_scene = preload("res://Scenes/Egg.tscn")
 const healing = preload("res://Scenes/healer.tscn")
-@export var num_foxes = 2
+@export var num_foxes = 3
 @onready var collisions = $collisions
 var tile_coll_coordinates = []
 var healers = 1
@@ -51,23 +51,26 @@ func _physics_process(delta):
 		spawn_healer(2)
 
 func spawn_healer(count):
-	
+	#calls healer spawner the number of times given
 	for i in range(count):
 		healer_calc_spawn()
 
 func healer_calc_spawn():
+	#calls healer scene
 	var healer_instance = healing.instantiate()
-	
+	#looks for a position on where to spawn it
 	var over = false
 	var rand_healer_position = Vector2(randi_range(-601, 601), randi_range(-475, 600))
 	var tile_below = collisions.local_to_map(rand_healer_position)
 	var world_tile_below = collisions.map_to_local(tile_below)
 	
+	#Check all of the positions in the list and compares them with the random position
 	for random_cord in tile_coll_coordinates:
+		# if the given position is over a any of the tiles it stops the search
 		if random_cord == world_tile_below:
 			over = true
 			break
-	
+	#It calls the function again if not then the object is spawned
 	if over == true:
 		fox_calc_spawn()
 	else:
@@ -76,22 +79,28 @@ func healer_calc_spawn():
 
 
 func spawn_foxes(count):
+	#calls fox spawner the number of times given
 	for i in range(count):
 		fox_calc_spawn()
 
 func fox_calc_spawn():
+	#calls fox scene
 	var fox_instance = fox_scene.instantiate()
 	
+	#looks for a position on where to spawn it
 	var over = false
 	var rand_fox_position = Vector2(randi_range(-601, 601), randi_range(-475, 600))
 	var tile_below = collisions.local_to_map(rand_fox_position)
 	var world_tile_below = collisions.map_to_local(tile_below)
 	
+	#Check all of the positions in the list and compares them with the random position
 	for random_cord in tile_coll_coordinates:
+		# if the given position is over a any of the tiles it stops the search
 		if random_cord == world_tile_below:
 			over = true
 			break
 	
+	#It calls the function again if not then the object is spawned
 	if over == true:
 		fox_calc_spawn()
 	else:
@@ -99,22 +108,28 @@ func fox_calc_spawn():
 		add_child(fox_instance)
 	
 func spawn_egg(count):
+	#calls egg spawner the number of times given
 	for y in range(count):
 		egg_calc_spawn()
 
 func egg_calc_spawn():
+	#calls egg scene
 	var egg_instance = egg_scene.instantiate()
 	
+	#looks for a position on where to spawn it
 	var over = false
 	var rand_fox_position = Vector2(randi_range(-601, 601), randi_range(-475, 600))
 	var tile_below = collisions.local_to_map(rand_fox_position)
 	var world_tile_below = collisions.map_to_local(tile_below)
 	
+	#Check all of the positions in the list and compares them with the random position
 	for random_cord in tile_coll_coordinates:
+		# if the given position is over a any of the tiles it stops the search
 		if random_cord == world_tile_below:
 			over = true
 			break
 	
+	#It calls the function again if not then the object is spawned
 	if over == true:
 		egg_calc_spawn()
 	else:
