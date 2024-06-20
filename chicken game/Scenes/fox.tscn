@@ -196,7 +196,7 @@ radius = 8.06226
 [node name="fox" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
 y_sort_enabled = true
 collision_layer = 4
-collision_mask = 9
+collision_mask = 13
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_s7y3g")
@@ -213,6 +213,7 @@ sprite_frames = SubResource("SpriteFrames_p6toy")
 animation = &"detect"
 
 [node name="detection_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -221,6 +222,7 @@ position = Vector2(2, -5)
 shape = SubResource("CircleShape2D_3olm6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2, -7)
 shape = SubResource("CircleShape2D_0gmdh")
 
@@ -238,6 +240,9 @@ one_shot = true
 navigation_layers = 9
 path_postprocessing = 1
 avoidance_enabled = true
+avoidance_layers = 4
+avoidance_mask = 4
+debug_enabled = true
 
 [node name="Update" type="Timer" parent="Guidance"]
 wait_time = 0.1
@@ -247,4 +252,5 @@ autostart = true
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="Detection" to="." method="_on_detection_timeout"]
 [connection signal="timeout" from="Idle" to="." method="_on_idle_timeout"]
+[connection signal="velocity_computed" from="Guidance/NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Guidance/Update" to="." method="_on_timer_timeout_nav"]
