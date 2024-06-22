@@ -5,10 +5,10 @@ extends Node2D
 const fox_scene = preload("res://Scenes/fox.tscn")
 const egg_scene = preload("res://Scenes/Egg.tscn")
 const healing = preload("res://Scenes/healer.tscn")
-@export var num_foxes = 15
-@onready var collisions = $collisions
+@export var num_foxes = 3
 var tile_coll_coordinates = []
 var healers = 1
+@onready var collisions = $NavigationRegion2D/collisions
 
 func _ready():
 	Global.curr_wave = 1 #when scene is first played current wave is equal to 1

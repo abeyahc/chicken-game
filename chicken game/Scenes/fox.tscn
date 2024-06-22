@@ -203,6 +203,7 @@ script = ExtResource("1_s7y3g")
 nav_agent = NodePath("Guidance/NavigationAgent2D")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, -5)
 target_position = Vector2(131, -1)
 collision_mask = 8
@@ -222,7 +223,6 @@ position = Vector2(2, -5)
 shape = SubResource("CircleShape2D_3olm6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(2, -7)
 shape = SubResource("CircleShape2D_0gmdh")
 
@@ -238,8 +238,8 @@ one_shot = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Guidance"]
 navigation_layers = 9
-path_postprocessing = 1
 avoidance_enabled = true
+radius = 20.0
 avoidance_layers = 4
 avoidance_mask = 4
 debug_enabled = true
