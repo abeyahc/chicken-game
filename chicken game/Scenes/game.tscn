@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ikdluvf2mpq3" path="res://Scenes/player.tscn" id="2_q8hlc"]
 [ext_resource type="Script" path="res://Scripts/collisions.gd" id="3_wyegx"]
 [ext_resource type="Script" path="res://Scripts/Current Waves.gd" id="5_epjx0"]
-[ext_resource type="PackedScene" uid="uid://bt4mbgtedmevt" path="res://Scenes/death.tscn" id="6_ld37s"]
+[ext_resource type="PackedScene" uid="uid://brlgmh3kmvr5d" path="res://Scenes/death.tscn" id="6_ld37s"]
 [ext_resource type="Script" path="res://Scripts/Eggs.gd" id="6_snoas"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_i1yn1"]
