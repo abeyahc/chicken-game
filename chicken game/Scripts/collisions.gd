@@ -5,7 +5,7 @@ extends TileMap
 var tile_coordinates = []
 var behind = false
 @onready var color_rect = $ColorRect
-@onready var player = $"../Player"
+@onready var player = $"../../Player"
 
 
 

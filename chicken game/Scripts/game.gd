@@ -6,9 +6,9 @@ const fox_scene = preload("res://Scenes/fox.tscn")
 const egg_scene = preload("res://Scenes/Egg.tscn")
 const healing = preload("res://Scenes/healer.tscn")
 @export var num_foxes = 3
-@onready var collisions = $collisions
 var tile_coll_coordinates = []
 var healers = 1
+@onready var collisions = $NavigationRegion2D/collisions
 
 func _ready():
 	Global.curr_wave = 1 #when scene is first played current wave is equal to 1

@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-const max_speed = 200
 var accel = 100
 
 

@@ -1,13 +1,12 @@
 extends CharacterBody2D
 
-var speed = 90
-var acceleration = 7
+var speed = 80
 @onready var animation = $AnimatedSprite2D
 @onready var detection = $Detection
 @onready var update = $Guidance/Update
+@onready var close = $Close
 @onready var ray_cast_2d = $RayCast2D
 @export var nav_agent: NavigationAgent2D
-var direction = Vector2.ZERO
 @onready var player = $"../Player"
 @onready var idle_time = $Idle
 var inside_area = false
@@ -15,6 +14,7 @@ var chasing = false
 var spotted = false
 var wondering = false
 var relaxing = true
+var avoiding = false
 
 func _physics_process(delta): 
 	#Changes RayCast2D angle towards the player to see if there is a wall between 
@@ -22,7 +22,7 @@ func _physics_process(delta):
 	var angle = direction.angle()
 	ray_cast_2d.rotation = angle
 	
-	
+
 	if inside_area: #if player is inside
 		if chasing: #if player is being chased it follows the player
 			follow(delta)
@@ -65,10 +65,10 @@ func follow(delta):
 	#While this function is being played attack animation is being played
 	animation.play("attack")
 	#direction and veolicity are being updated to chase the player
-	direction = nav_agent.get_next_path_position() - global_position
-	direction = direction.normalized()
-	velocity = velocity.lerp(direction * speed, acceleration*delta)
-	move_and_slide()
+	var current_agent_position = global_position
+	var next_path_position = nav_agent.get_next_path_position()
+	var new_velocity = current_agent_position.direction_to(next_path_position) * speed
+	_on_navigation_agent_2d_velocity_computed(new_velocity)
 	#depending on which direction the enemy is facing the sprite flips
 	if velocity.x < 0:
 		animation.flip_h = true
@@ -99,3 +99,7 @@ func find_loc():
 func recalc_path():
 	if (inside_area and chasing) or spotted: #if the player is inside the area and it's being chased or it was spotted then the enemy target position becomes equal to the player position
 		nav_agent.target_position = player.global_position
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity):
+	velocity = safe_velocity
+	move_and_slide()
